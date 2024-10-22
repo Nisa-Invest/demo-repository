@@ -4,7 +4,7 @@ import { Tabs, TabList, Tab } from "react-aria-components";
 
 export default function Navbar() {
   return (
-    <nav className="flex flex-row justify-between bg-primary-purple rounded-full text-accent-light-purple">
+    <nav className="flex flex-row justify-between bg-primary-purple text-accent-light-purple">
       <Tabs>
         <TabList
           aria-label="Nisa Invest Landing Page"
