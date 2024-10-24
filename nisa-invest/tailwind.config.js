@@ -10,8 +10,8 @@ export default {
         "primary-purple": "#512294",
         "secondary-green": "#3A4f41",
         accent: {
-          'light-purple': "#DBCC1E1",
-          'light-green': "#DBf9B8",
+          "light-purple": "#DBCCE1",
+          "light-green": "#DBf9B8",
         },
       },
       fontFamily: {
