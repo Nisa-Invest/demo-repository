@@ -1,16 +1,14 @@
-
-import './App.css'
-import Navbar from './components/Navbar/Navbar'
+import "./App.css";
+import Layout from "./components/Layout.tsx/Layout";
+import { RouterRoutes } from "./routes/Routes";
 function App() {
-
-
   return (
     <>
-<Navbar/>
-      <h1>Vite + React</h1>
-
+      <Layout>
+        <RouterRoutes />
+      </Layout>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

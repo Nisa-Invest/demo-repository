@@ -8,10 +8,10 @@ export default {
     extend: {
       colors: {
         "primary-purple": "#512294",
-        "secondary-green": "#3A4f41",
         accent: {
           "light-purple": "#DBCCE1",
-          "light-green": "#DBf9B8",
+          "light-yellow": "#FFDC73",
+          "grey": "#36454F",
         },
       },
       fontFamily: {
@@ -23,4 +23,3 @@ export default {
   },
   plugins: [],
 };
-
