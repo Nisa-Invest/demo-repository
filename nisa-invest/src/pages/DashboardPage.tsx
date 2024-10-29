@@ -1,3 +1,6 @@
+import { DashboardCard } from "../components/DashboardComponents/DashboardCard";
+import { WidgetsContainer } from "../components/DashboardComponents/WidgetsContainer";
+
 export function DashboardPage() {
   return (
     <div className="container mx-auto px-4 py-8">
@@ -15,45 +18,29 @@ export function DashboardPage() {
       {/* Four Sections Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Workplace Pension */}
-        <div className="bg-accent-light-purple p-6 rounded-lg hover:bg-accent-light-purple/80 transition-colors cursor-pointer">
-          <h3 className="text-xl font-heading text-primary-purple mb-2">
-            Workplace Pension
-          </h3>
-          <p className="text-secondary-green">
-            Review and optimize your pension contributions
-          </p>
-        </div>
+        <DashboardCard
+          title="Workplace Pension"
+          description="Review and see if you're optimising your pension contributions"
+        />
 
         {/* Student Loan Repayment */}
-        <div className="bg-accent-light-purple p-6 rounded-lg hover:bg-accent-light-purple/80 transition-colors cursor-pointer">
-          <h3 className="text-xl font-heading text-primary-purple mb-2">
-            Student Loan Repayment
-          </h3>
-          <p className="text-secondary-green">
-            Track and manage your student loan payments
-          </p>
-        </div>
+        <DashboardCard
+          title="Student Loan Repayment"
+          description="See what steps you can take to pay of your debt"
+        />
 
         {/* Family Benefits */}
-        <div className="bg-accent-light-purple p-6 rounded-lg hover:bg-accent-light-purple/80 transition-colors cursor-pointer">
-          <h3 className="text-xl font-heading text-primary-purple mb-2">
-            Family Benefits
-          </h3>
-          <p className="text-secondary-green">
-            Explore available family financial benefits
-          </p>
-        </div>
-
+        <DashboardCard
+          title="Family Benefits"
+          description="See if you're entitled to child tax credit or other family benefits"
+        />
         {/* Charitable Giving */}
-        <div className="bg-accent-light-purple p-6 rounded-lg hover:bg-accent-light-purple/80 transition-colors cursor-pointer">
-          <h3 className="text-xl font-heading text-primary-purple mb-2">
-            Charitable Giving
-          </h3>
-          <p className="text-secondary-green">
-            Plan and track your charitable contributions
-          </p>
-        </div>
+        <DashboardCard
+          title="Charitable Giving"
+          description="Let's find an easy way to fulfil your sadaqah, charity, responsibities"
+        />
       </div>
+      <WidgetsContainer/>
     </div>
   );
 }
