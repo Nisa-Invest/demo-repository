@@ -1,34 +1,29 @@
+import { CgCheckO } from "react-icons/cg";
+import { CgHeart } from "react-icons/cg";
 interface WidgetColumnProps {
-    title: string;
-    // tasks?: Task[];
-    // onTaskMove?:(taskId: string) => void
+  title: string;
+  // tasks?: Task[];
+  // onTaskMove?:(taskId: string) => void
+  children: React.ReactNode;
 }
 
-
-export function WidgetColumn({title}: WidgetColumnProps){
-    return (
-      <section className="p4 bg-white rounded-lg shadow">
-        <h3 className="text-fontFamily-heading text-lg font-semibold mb-4 flex items-center">
-          {title}
-          <img
-            src=""
-            alt="Completed Tasks Column"
-            className="ml-2 w-5 h-5"
-          ></img>
-        </h3>
-        <div className="space-y-2">
-        {/* //         {tasks.map((task) => (
-        //   <div
-        //     key={task.id}
-        //     className="p-3 bg-gray-100 rounded cursor-move"
-        //     draggable
-        //     onDragStart={(e) => e.dataTransfer.setData('text/plain', task.id)}
-        //     onDragEnd={() => onTaskMove && onTaskMove(task.id)}
-        //   >
-        //     {task.title}
-        //   </div> */}
-        </div>
-       
-      </section>
-    );
+export function WidgetColumn({ title, children }: WidgetColumnProps) {
+  return (
+    <section className="p4 bg-white rounded-lg shadow flex flex-col min-h-80">
+      <h3 className="text-lg font-semibold mb-4 flex mt-4 self-center">
+        {title}
+        {title === "Completed Tasks" && (
+          <svg className="ml-2 w-7 h-7 text-green-700">
+            <CgCheckO />
+          </svg>
+        )}
+        {title === "To Do" && (
+          <svg className="ml-2 w-7 h-7 text-primary-purple">
+            <CgHeart />
+          </svg>
+        )}
+      </h3>
+      <div className="space-y-4 flex-grow">{children}</div>
+    </section>
+  );
 }

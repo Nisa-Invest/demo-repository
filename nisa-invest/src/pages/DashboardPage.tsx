@@ -1,7 +1,12 @@
 import { DashboardCard } from "../components/DashboardComponents/DashboardCard";
 import { WidgetsContainer } from "../components/DashboardComponents/WidgetsContainer";
+import { useState } from "react";
+import { Task } from "../utils/Types";
 
 export function DashboardPage() {
+
+  const [tasks, setTasks] = useState([]);
+  const [activeCard, setActiveCard] = useState(null)
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Gauge Section */}
