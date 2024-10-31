@@ -12,7 +12,7 @@ export default {
   			accent: {
   				'light-purple': '#DBCCE1',
   				'light-yellow': '#FFDC73',
-  				'grey': '#36454F',
+  				grey: '#36454F',
   				DEFAULT: 'hsl(var(--accent))',
   				foreground: 'hsl(var(--accent-foreground))'
   			},
