@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 interface DropAreaProps {
   position: number;
   columnTitle: string;
@@ -12,21 +11,34 @@ export function DropArea({ position, columnTitle, onDrop }: DropAreaProps) {
 
   return (
     <section
-    //When a dragged item enters the drop zone
-      onDragEnter={() => setShowDrop(true)}
-    //When a dragged item leaves the drop zone
-      onDragLeave={() => setShowDrop(false)}
-    //When item is dropped
-      onDrop={(e) => {
+      //When a dragged item enters the drop zone
+      onDragEnter={(e) => {
         e.preventDefault();
-        onDrop(columnTitle, position);  // Pass the column title instead of hardcoded status
-        setShowDrop(false);
+        console.log("Drag Enter");
+        setShowDrop(true);
+      }}
+      //When a dragged item leaves the drop zone
+      onDragLeave={(e) =>{
+        e.preventDefault();
+          console.log("Drag Leave");
+        setShowDrop(false)}}
+
+
+      onDragOver={(e) =>{
+        e.preventDefault();
+        console.log("Drag Over");
       }}
 
+      //When item is dropped
+      onDrop={(e) => {
+        e.preventDefault();
+        console.log('Drop Happened!', {columnTitle, position})
+        onDrop(columnTitle, position); // Pass the column title instead of hardcoded status
+        setShowDrop(false);
+      }}
       //This is crucial, without this, the browser's default behaviour will prevent dropping
       //the default behaviour is to not allow dropping
-      onDragOver={(e) => e.preventDefault()}
-      
+
       className={`
         ${
           showDrop

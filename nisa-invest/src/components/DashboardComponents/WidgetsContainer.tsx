@@ -80,7 +80,7 @@ export function WidgetsContainer() {
         </WidgetsColumn>
 
         <WidgetsColumn title="Completed Tasks" onDrop={onDrop}>
-          {Tasks.map((widget) => (
+          {/* {Tasks.map((widget) => (
             <Widget
               key={widget.id}
               id={widget.id}
@@ -89,7 +89,15 @@ export function WidgetsContainer() {
               status="Doing Well!"
               setActiveWidget={setActiveWidget}
             />
-          ))}
+          ))} */}
+          <Widget
+            key={11}
+            id={11}
+            title={'test'}
+            description={"widget.description"}
+            status="Doing Well!"
+            setActiveWidget={setActiveWidget}
+          />
         </WidgetsColumn>
       </section>
     </div>
