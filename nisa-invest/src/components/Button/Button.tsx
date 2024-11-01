@@ -20,20 +20,21 @@ export const Button = ({
     <button
       onClick={onClick}
       className={`
-        flex items-center gap-2 px-4 py-2
-        rounded-lg font-medium
-        transition-colors duration-200
+        flex items-center gap-1 md:gap-2
+        px-2 md:px-4 py-1 md:py-2 mx-1
+        rounded-lg font-medium text-xs md:text-base min-w-min 
+        transition-colors duration-200 shadow-md
         ${
           variant === "primary"
-            ? "bg-accent-light-purple text-primary-purple hover:bg-gray-200"
-        
-            : "bg-accent-light-green text-secondary-green hover:bg-green-200"}
+            ? "bg-accent-light-purple text-primary-purple hover:bg-accent-light-yellow"
+            : "bg-accent-light-yellow text-primary-purple hover:bg-green-200"
+        }
         ${className}
       `}
       {...props}
     >
-      {icon && <span className="w-5 h-5">{icon}</span>}
-      {label}
+      {icon && <span className="w-4 h-4 md:w-5 md:h-5">{icon}</span>}
+      <span className="text-center break-words">{label}</span>
     </button>
   );
 };
