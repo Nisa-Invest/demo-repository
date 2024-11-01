@@ -1,4 +1,4 @@
-import { Badge } from "@/components/ui/badge";
+import Badge from '../Badge/Badge'
 
 interface WidgetProps {
   title: string;
@@ -7,7 +7,6 @@ interface WidgetProps {
   icon?: React.ReactNode;
   id: number;
   setActiveWidget: (id: number | null) => void;
-
 }
 
 export function Widget({
