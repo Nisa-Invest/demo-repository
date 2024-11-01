@@ -1,5 +1,5 @@
 import "./App.css";
-import Layout from "./components/Layout.tsx/Layout";
+import Layout from "./components/Layout/Layout";
 import { RouterRoutes } from "./routes/Routes";
 function App() {
   return (

@@ -26,7 +26,7 @@ export const Button = ({
         transition-colors duration-200 shadow-md
         ${
           variant === "primary"
-            ? "bg-accent-light-purple text-primary-purple hover:bg-accent-light-yellow"
+            ? "bg-lightest-grey text-primary-purple hover:bg-accent-light-yellow"
             : "bg-accent-light-yellow text-primary-purple hover:bg-green-200"
         }
         ${className}
