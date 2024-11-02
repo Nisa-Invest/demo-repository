@@ -8,7 +8,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4 md:gap-7 md:pl-20">
 
           <Button label="Our Mission" />
-          <Button label="Contact us" />
+          <Button label="Book a Demo" />
         </div>
 
         <Button label="Login" />

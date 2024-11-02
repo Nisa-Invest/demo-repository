@@ -1,8 +1,14 @@
 import { NisaLogo } from "../assets/Nisa_Logo";
 import { Button } from "../components/Button/Button";
 import TestimonialCard from "../components/TestimonialCard/TestimonialCard";
+import { areasWeHelp } from "../utils/AreasWeHelp";
 import { services } from "../utils/services";
 import { testimonials } from "../utils/testimonials";
+
+
+
+
+
 export function LandingPage() {
   return (
     <div className="scroll-smooth">
@@ -36,19 +42,18 @@ export function LandingPage() {
             especially when dealing with key areas like:
           </p>
           <ul className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 text-primary-purple">
-            {[
-              "Workplace Pension",
-              "Family Benefits",
-              "Student Loans",
-              "Payroll Giving",
-            ].map((item, index) => (
-              <li
-                key={index}
-                className="bg-accent-light-grey bg-opacity-20 rounded-lg p-4 flex items-center justify-center"
-              >
-                {item}
-              </li>
-            ))}
+            {areasWeHelp.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <li
+                  key={index}
+                  className="bg-accent-light-grey bg-opacity-20 rounded-lg p-4 flex items-center justify-center"
+                >
+                  <Icon className="w-5 h-5 mr-2" size={20} />
+                  <span>{item.text}</span>
+                </li>
+              );
+            })}
           </ul>
           <p className="text-lg">
             Employers who provide guidance while being mindful of diverse needs
