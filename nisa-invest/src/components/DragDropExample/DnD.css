@@ -1,0 +1,30 @@
+.groups {
+  display: flex;
+  margin: 5px;
+  padding: 5px;
+  flex-wrap: wrap;
+
+
+  .column {
+    margin: 2px;
+    padding: 20px;
+    min-height: 16rem;
+    background-color: green;
+
+    .title{
+      color: white;
+      padding: 0;
+      margin-top: 0;
+    }
+  }
+}
+
+
+.item {
+  background-color: yellow;
+  color: blue;
+  margin: 5px;
+  padding: 5px;
+  border: 2px green;
+  cursor: grab;
+}

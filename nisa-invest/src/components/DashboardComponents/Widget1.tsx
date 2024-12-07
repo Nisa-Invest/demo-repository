@@ -1,6 +1,5 @@
 import Badge from "../Badge/Badge";
 import styles from "./dashboard.module.css";
-import { useState } from "react";
 // Then in your JSX:
 <article className={styles.widget}></article>;
 interface WidgetProps {
@@ -13,25 +12,7 @@ interface WidgetProps {
 }
 
 
-
-const handleDragEnd = (success: boolean) => {
-  if (success) {
-    console.log("Widget was successfully dropped");
-    // Maybe update some state or trigger some animation
-  } else {
-    console.log("Widget drag was cancelled or failed");
-    // Maybe reset some state or show a message
-  }
-};
-
-export function Widget({ title, description, status, id }: WidgetProps) {
-  const [draggedId, setDraggedId] = useState<number | null>(null);
-
-  const dragStartHandler = (event: React.DragEvent<HTMLElement>, id: number) => {
-  event.preventDefault();
-  setDraggedId(id);
-  event.dataTransfer.setData("text/plain", id.toString());
-};
+export function Widget1({ title, description, status, id }: WidgetProps) {
 
   const getStatusColour = (status: string) => {
     switch (status) {
@@ -48,8 +29,6 @@ export function Widget({ title, description, status, id }: WidgetProps) {
     <article
       key={id}
       draggable="true"
-      onDragStart={(e) => dragStartHandler(e, id)}
-      onDragEnd={() => handleDragEnd}
       className={styles.widget}
     >
       <div className={styles.widgetHeader}></div>

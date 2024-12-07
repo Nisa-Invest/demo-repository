@@ -1,0 +1,89 @@
+/* Base Widget Styles */
+.widget {
+  background-color: var(--accent-light-yellow);
+  color: var(--primary-purple);
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.375rem; /* rounded-md */
+  padding: 1rem; /* p-4 */
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+  width: 16rem; /* w-64 */
+  overflow: hidden;
+}
+
+.widget:active {
+  background-color: rgba(var(--accent-light-purple), 0.2);
+  cursor: grab;
+}
+
+/* Header section */
+.widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Status Badge Styles */
+.badge {
+  align-self: flex-end;
+  white-space: normal;
+  width: auto;
+}
+
+/* Status Colors */
+.status-doing-well {
+  background-color: rgb(220, 252, 231); /* bg-green-100 */
+  color: rgb(22, 101, 52); /* text-green-800 */
+}
+
+.status-doing-well:hover {
+  background-color: rgb(187, 247, 208); /* hover:bg-green-200 */
+}
+
+.status-improve {
+  background-color: rgb(255, 237, 213); /* bg-orange-100 */
+  color: rgb(154, 52, 18); /* text-orange-800 */
+}
+
+.status-improve:hover {
+  background-color: rgb(254, 215, 170); /* hover:bg-orange-200 */
+}
+
+.status-clarify {
+  background-color: rgb(219, 234, 254); /* bg-blue-100 */
+  color: rgb(30, 64, 175); /* text-blue-800 */
+}
+
+.status-clarify:hover {
+  background-color: rgb(191, 219, 254); /* hover:bg-blue-200 */
+}
+
+.status-default {
+  background-color: rgb(243, 244, 246); /* bg-gray-100 */
+  color: rgb(31, 41, 55); /* text-gray-800 */
+}
+
+.status-default:hover {
+  background-color: rgb(229, 231, 235); /* hover:bg-gray-200 */
+}
+
+dropZone {
+  min-height: 200px;
+  border: 2px dashed #ccc;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dropZone:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* CSS Variables */
+:root {
+  --accent-light-yellow: #FFDC73;
+  --primary-purple: #7575cf;
+  --accent-light-purple: #9EA8ED;
+}
