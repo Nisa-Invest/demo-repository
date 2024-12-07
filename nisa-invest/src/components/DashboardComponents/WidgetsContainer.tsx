@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { WidgetsColumn } from "./WidgetsColumn";
-import { Widget } from "./Widget";
+import { Widget } from "./Widget/Widget";
 import { Tasks } from "../../utils/data";
 
 interface WidgetType {
@@ -93,7 +93,7 @@ export function WidgetsContainer() {
           <Widget
             key={11}
             id={11}
-            title={'test'}
+            title={"test"}
             description={"widget.description"}
             status="Doing Well!"
             setActiveWidget={setActiveWidget}

@@ -1,0 +1,16 @@
+/* Widget.module.css */
+.widget {
+  background-color: var(--accent-light-yellow); /* Replace with your actual color value */
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.375rem; /* Matches Tailwind's 'rounded-md' */
+  padding: 1rem; /* Matches Tailwind's 'p-4' */
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Matches Tailwind's 'shadow-sm' */
+  width: 16rem; /* Matches Tailwind's 'w-64' */
+  overflow: hidden;
+}
+
+.widget:active {
+  background-color: rgba(var(--accent-light-purple-rgb), 0.2); /* Replace with your actual color value */
+  cursor: grab;
+}
