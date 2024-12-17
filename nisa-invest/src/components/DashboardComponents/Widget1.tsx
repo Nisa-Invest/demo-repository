@@ -8,11 +8,12 @@ interface WidgetProps {
   status: "Doing Well!" | "Let's Improve" | "Let's Clarify";
   icon?: React.ReactNode;
   id: number;
-  // setActiveWidget: (id: number | null) => void;
+  onDragStart?: (event: React.DragEvent<HTMLDivElement>) => void;
+  onDragEnd?: (event: React.DragEvent<HTMLDivElement>) => void;
 }
 
 
-export function Widget1({ title, description, status, id }: WidgetProps) {
+export function Widget1({ title, description, status, id,onDragStart, onDragEnd }: WidgetProps) {
 
   const getStatusColour = (status: string) => {
     switch (status) {
@@ -28,8 +29,10 @@ export function Widget1({ title, description, status, id }: WidgetProps) {
   return (
     <article
       key={id}
-      draggable="true"
+      draggable
       className={styles.widget}
+      onDragStart={onDragStart}
+      onDragEnd = {onDragEnd}
     >
       <div className={styles.widgetHeader}></div>
       <Badge className={`${getStatusColour(status)} ${styles.badge}`}>
