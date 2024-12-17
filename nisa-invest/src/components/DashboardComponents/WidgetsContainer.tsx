@@ -1,7 +1,8 @@
 import { useReducer } from "react";
 import { Widget1 } from "./Widget1";
 import { Tasks } from "../../utils/data";
-
+import { WidgetsColumn } from "./WidgetsColumn";
+import styles from "./dashboard.module.css";
 type Widget = {
   id: number;
   column: number;
@@ -84,24 +85,17 @@ export function WidgetsContainer() {
     });
   };
 
-  // const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  // };
-
-  // const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  // };
-
   return (
-    <div className="container grid grid-cols-2">
-      
+    <div className="container grid grid-cols-2 gap-8 mt-8 min-h-[200px]">
       <div
-        className="drag-column bg-blue-400"
+        className="drag-column bg-lightest-grey rounded-md"
         onDrop={(e) => handleDrop(e, 0)} //drop into column 0
         onDragOver={(e) => e.preventDefault()}
       >
+        <h2 className="text-xl font-bold font-heading text-slate-grey m-5 ">
+          {" "}
+          Tasks to Do, InshAllah!
+        </h2>
         {state.widgets
           .filter((widget) => widget.column === 0)
           .map((widget) => (
@@ -118,10 +112,14 @@ export function WidgetsContainer() {
       </div>
 
       <div
-        className="drag-column bg-green-400"
+        className="drag-column bg-lightest-grey rounded-md"
         onDrop={(e) => handleDrop(e, 1)} //drop into column 1
         onDragOver={(e) => e.preventDefault()}
       >
+        <h2 className="text-xl font-bold font-heading text-slate-grey m-5">
+          {" "}
+          I have completed!{" "}
+        </h2>
         {state.widgets
           .filter((widget) => widget.column === 1)
           .map((widget) => (
@@ -129,7 +127,7 @@ export function WidgetsContainer() {
               key={widget.id}
               title={`Task ${widget.id}`}
               description={`Position: ${widget.position}`}
-              status="Let's Improve"
+              status="Doing Well!"
               id={widget.id}
               onDragStart={(e) => handleDragStart(e, widget.id)}
               onDragEnd={(e) => handleDrop(e, 0)}
