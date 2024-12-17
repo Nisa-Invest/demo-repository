@@ -1,5 +1,5 @@
-import Badge from '../Badge/Badge'
-
+import Badge from "../../Badge/Badge";
+import styles from './Widget.module.css'
 interface WidgetProps {
   title: string;
   description: string;
@@ -32,7 +32,7 @@ export function Widget({
   return (
     <article
       key={id}
-      className="bg-accent-light-yellow flex flex-col rounded-md p-4 shadow-sm w-64 overflow-hidden active:bg-accent-light-purple/20 active:cursor-grab"
+      className={styles.widget}
       draggable="true"
       onDragStart={() => setActiveWidget(id)}
       onDragEnd={() => setActiveWidget(null)}
