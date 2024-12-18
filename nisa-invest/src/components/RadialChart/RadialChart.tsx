@@ -31,7 +31,8 @@ export function RadialChart() {
         },
       },
     },
-    colors: ["#7575cf", "#FFDC73", "#595959", "#FFB84D"],
+    colors: ["#5d4970", "#8f5fa3", "#595959", "#9ea8ed"],
+
     labels: [
       "Pensions",
       "Family Benefits",
