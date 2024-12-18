@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { Widget } from "./Widget";
+import { Widget } from "./Widget/Widget";
 import { Tasks } from "../../utils/data";
 import { WidgetT } from "../../utils/Types";
 

@@ -7,6 +7,9 @@
   margin: 0 auto;
   padding: 0rem;  /* <- Remove or set to 0 */
   text-align: center;
+  --accent-light-yellow: #FFDC73;
+  --accent-light-purple-rgb: 158, 168, 237;
+  --radius: 0.5rem; /* Default border radius (adjust as needed) */
 }
 
 body {
