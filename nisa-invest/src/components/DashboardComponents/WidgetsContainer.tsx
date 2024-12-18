@@ -1,13 +1,8 @@
 import { useReducer } from "react";
-import { Widget1 } from "./Widget1";
+import { Widget } from "./Widget";
 import { Tasks } from "../../utils/data";
+import { WidgetT } from "../../utils/Types";
 
-type Widget = {
-  id: number;
-  column: number;
-  position: number;
-  isDragged: boolean;
-};
 
 type WidgetAction =
   | { type: "SET_DRAGGED"; payload: number }
@@ -15,7 +10,7 @@ type WidgetAction =
   | { type: "CLEAR_DRAGGED" };
 
 type WidgetState = {
-  widgets: Widget[];
+  widgets: WidgetT[];
   draggedWidgetId: number | null;
 };
 
@@ -52,7 +47,10 @@ export function WidgetsContainer() {
     widgets: Tasks.map((task, index) => {
       return {
         id: task.id,
+        title: task.title,
+        description: task.description,
         column: 0,
+        status: task.status,
         position: index,
         isDragged: false,
       };
@@ -85,9 +83,9 @@ export function WidgetsContainer() {
   };
 
   return (
-    <div className="container grid grid-cols-2 gap-8 mt-8 min-h-[200px]">
+    <div className="container grid grid-cols-2 gap-8 mt-8 min-h-[500px]">
       <div
-        className="drag-column bg-lightest-grey rounded-md"
+        className="drag-column bg-lightest-grey rounded-md p-5"
         onDrop={(e) => handleDrop(e, 0)} //drop into column 0
         onDragOver={(e) => e.preventDefault()}
       >
@@ -95,19 +93,21 @@ export function WidgetsContainer() {
           {" "}
           Tasks to Do, InshAllah!
         </h2>
-        {state.widgets
-          .filter((widget) => widget.column === 0)
-          .map((widget) => (
-            <Widget1
-              key={widget.id}
-              title={`Task ${widget.id}`}
-              description={`Position: ${widget.position}`}
-              status="Let's Improve"
-              id={widget.id}
-              onDragStart={(e) => handleDragStart(e, widget.id)}
-              onDragEnd={(e) => handleDrop(e, 0)}
-            />
-          ))}
+        <div className="grid grid-cols-2 gap-4">
+          {state.widgets
+            .filter((widget) => widget.column === 0)
+            .map(({ id, title, description, status }) => (
+              //need logic here to change value of status
+              <Widget
+                id={id}
+                title={title}
+                description={description}
+                status={status}
+                onDragStart={(e) => handleDragStart(e, id)}
+                onDragEnd={(e) => handleDrop(e, 0)}
+              />
+            ))}
+        </div>
       </div>
 
       <div
@@ -119,19 +119,20 @@ export function WidgetsContainer() {
           {" "}
           I have completed!{" "}
         </h2>
-        {state.widgets
-          .filter((widget) => widget.column === 1)
-          .map((widget) => (
-            <Widget1
-              key={widget.id}
-              title={`Task ${widget.id}`}
-              description={`Position: ${widget.position}`}
-              status="Doing Well!"
-              id={widget.id}
-              onDragStart={(e) => handleDragStart(e, widget.id)}
-              onDragEnd={(e) => handleDrop(e, 0)}
-            />
-          ))}
+        <div className="grid grid-cols-2 gap-4">
+          {state.widgets
+            .filter((widget) => widget.column === 1)
+            .map(({ id, title, description }) => (
+              <Widget
+                id={id}
+                title={title}
+                description={description}
+                status="Doing Well!"
+                onDragStart={(e) => handleDragStart(e, id)}
+                onDragEnd={(e) => handleDrop(e, 0)}
+              />
+            ))}
+        </div>
       </div>
     </div>
   );

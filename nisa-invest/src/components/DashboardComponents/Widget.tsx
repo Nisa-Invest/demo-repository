@@ -1,37 +1,19 @@
 import Badge from "../Badge/Badge";
 import styles from "./dashboard.module.css";
-import { useState } from "react";
-// Then in your JSX:
-<article className={styles.widget}></article>;
+
+
 interface WidgetProps {
+  id: number;
   title: string;
   description: string;
   status: "Doing Well!" | "Let's Improve" | "Let's Clarify";
   icon?: React.ReactNode;
-  id: number;
-  // setActiveWidget: (id: number | null) => void;
+  onDragStart?: (event: React.DragEvent<HTMLDivElement>) => void;
+  onDragEnd?: (event: React.DragEvent<HTMLDivElement>) => void;
 }
 
 
-
-const handleDragEnd = (success: boolean) => {
-  if (success) {
-    console.log("Widget was successfully dropped");
-    // Maybe update some state or trigger some animation
-  } else {
-    console.log("Widget drag was cancelled or failed");
-    // Maybe reset some state or show a message
-  }
-};
-
-export function Widget({ title, description, status, id }: WidgetProps) {
-  const [draggedId, setDraggedId] = useState<number | null>(null);
-
-  const dragStartHandler = (event: React.DragEvent<HTMLElement>, id: number) => {
-  event.preventDefault();
-  setDraggedId(id);
-  event.dataTransfer.setData("text/plain", id.toString());
-};
+export function Widget({ id, title, description, status, onDragStart, onDragEnd }: WidgetProps) {
 
   const getStatusColour = (status: string) => {
     switch (status) {
@@ -47,10 +29,10 @@ export function Widget({ title, description, status, id }: WidgetProps) {
   return (
     <article
       key={id}
-      draggable="true"
-      onDragStart={(e) => dragStartHandler(e, id)}
-      onDragEnd={() => handleDragEnd}
+      draggable
       className={styles.widget}
+      onDragStart={onDragStart}
+      onDragEnd = {onDragEnd}
     >
       <div className={styles.widgetHeader}></div>
       <Badge className={`${getStatusColour(status)} ${styles.badge}`}>
