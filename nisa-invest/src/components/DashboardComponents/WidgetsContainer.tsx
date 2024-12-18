@@ -1,8 +1,7 @@
 import { useReducer } from "react";
 import { Widget1 } from "./Widget1";
 import { Tasks } from "../../utils/data";
-import { WidgetsColumn } from "./WidgetsColumn";
-import styles from "./dashboard.module.css";
+
 type Widget = {
   id: number;
   column: number;
