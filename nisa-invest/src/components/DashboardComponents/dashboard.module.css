@@ -28,6 +28,10 @@
   cursor:grabbing;
 }
 
+.widget:hover{
+  opacity: 0.7;
+}
+
 .widget:active {
   background-color: rgba(var(--accent-light-purple), 0.2);
   cursor: grabbing;
