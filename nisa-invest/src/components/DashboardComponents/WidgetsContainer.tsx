@@ -104,7 +104,7 @@ export function WidgetsContainer() {
                 description={description}
                 status={status}
                 onDragStart={(e) => handleDragStart(e, id)}
-                onDragEnd={(e) => handleDrop(e, 0)}
+                onDrop={(e) => handleDrop(e, 0)}
               />
             ))}
         </div>
@@ -129,7 +129,7 @@ export function WidgetsContainer() {
                 description={description}
                 status="Doing Well!"
                 onDragStart={(e) => handleDragStart(e, id)}
-                onDragEnd={(e) => handleDrop(e, 0)}
+                onDrop={(e) => handleDrop(e, 1)}
               />
             ))}
         </div>

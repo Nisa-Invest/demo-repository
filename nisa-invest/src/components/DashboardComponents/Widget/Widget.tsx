@@ -1,3 +1,4 @@
+
 import Badge from "../../Badge/Badge";
 
 interface WidgetProps {
@@ -6,7 +7,8 @@ interface WidgetProps {
   status: "Doing Well!" | "Let's Improve" | "Let's Clarify";
   icon?: React.ReactNode;
   id: number;
-  setActiveWidget: (id: number | null) => void;
+  onDragStart?: (event: React.DragEvent<HTMLDivElement>) => void;
+  onDrop?: (event: React.DragEvent<HTMLDivElement>) => void;
 }
 
 export function Widget({
@@ -14,7 +16,8 @@ export function Widget({
   description,
   status,
   id,
-  setActiveWidget,
+onDragStart,
+onDrop,
 }: WidgetProps) {
   const getStatusColour = (status: string) => {
     switch (status) {
@@ -34,8 +37,8 @@ export function Widget({
       key={id}
       className="bg-accent-light-yellow flex flex-col rounded-md p-4 shadow-sm w-64 overflow-hidden active:bg-accent-light-purple/20 active:cursor-grab"
       draggable="true"
-      onDragStart={() => setActiveWidget(id)}
-      onDragEnd={() => setActiveWidget(null)}
+      onDragStart={onDragStart}
+      onDragEnd={onDrop}
     >
       <div className="flex items-center justify-between">
         {/* {icon && <div className="text-muted-foreground">{icon}</div>} */}
