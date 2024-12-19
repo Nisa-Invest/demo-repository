@@ -4,8 +4,8 @@ export const Tasks: Task[] = [
  {
    id: 1,
    category: "Workplace_Pension",
-   title: "Pension Portal Login",
-   description: "This is where you will find relevant information",
+   title: "Log in to your Pension Portal",
+   description: "The first step to finding relevant infomation",
    status: "Let's Improve"
  },
  {
@@ -19,36 +19,36 @@ export const Tasks: Task[] = [
    id: 3,
    category: "Workplace_Pension",
    title: "Employer Contribution", 
-   description: "The part your employer puts into your pension",
-   status: "Let's Clarify"
+   description: "the part your employer puts into your pension",
+   status:"Let's Improve"
  },
- {
+  {
    id: 4,
    category: "Workplace_Pension",
-   title: "Employee Contribution",
-   description: "The part you put into your pension",
-   status: "Let's Clarify"
+   title: "Employee Contribution", 
+   description: "the part you put into your pension",
+   status:"Let's Improve"
  },
- {
+   {
    id: 5,
    category: "Workplace_Pension",
-   title: "Employer Matching",
-   description: "What your employer adds because you contributed",
-   status: "Let's Improve"
+   title: "Pension Allowance", 
+   description: "the tax savings from adding to your pension",
+   status:"Let's Improve"
  },
  {
    id: 6,
    category: "Workplace_Pension",
-   title: "Pension Allowance",
-   description: "The tax savings from adding to your pension",
-   status: "Let's Clarify"
+   title: "Employee Contribution",
+   description: "the part your employer puts into your pension",
+   status: "Let's Improve"
  },
- {
+  {
    id: 7,
    category: "Workplace_Pension",
    title: "Total Contribution",
-   description: "What you and your employer added all together",
-   status: "Doing Well!"
+   description: "what you and your employer added all together",
+   status: "Let's Improve"
  },
  {
    id: 8,
@@ -64,11 +64,11 @@ export const Tasks: Task[] = [
    description: "Bringing old pensions together",
    status: "Let's Improve"
  },
- {
+  {
    id: 10,
    category: "Workplace_Pension",
-   title: "Nominated Beneficiaries",
-   description: "Letting your pension know your next of kin",
+   title: "Nominated Benificiaries",
+   description: "By nominating a next of kin, you can ensure your loved ones inherit your pension if you don't spend it all.",
    status: "Let's Improve"
  }
 ];

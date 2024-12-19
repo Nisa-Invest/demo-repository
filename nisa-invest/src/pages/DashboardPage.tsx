@@ -1,17 +1,18 @@
 import { DashboardCard } from "../components/DashboardComponents/DashboardCard";
 import { WidgetsContainer } from "../components/DashboardComponents/WidgetsContainer";
+import { RadialChart } from "../components/RadialChart/RadialChart";
 
 export function DashboardPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Gauge Section */}
       <div className="mb-8 p-6 bg-accent-light-purple/20 rounded-lg">
-        <h2 className="text-2xl font-heading text-primary-purple text-center mb-4">
+        <h2 className="text-2xl font-bold font-heading text-primary-purple text-center mb-4">
           Financial Health Score
         </h2>
         {/* Placeholder for gauge - we can add the actual gauge component here */}
-        <div className="w-48 h-48 mx-auto bg-accent-light-purple rounded-full">
-          {/* Gauge will go here */}
+        <div className="mx-auto">
+          <RadialChart />
         </div>
       </div>
 

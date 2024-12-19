@@ -120,7 +120,7 @@ export function LandingPage() {
       </section>
 
       {/* Section 5 - Call to Action */}
-      <section className="py-20 px-4  text-slate-grey text-center flex flex-col ">
+      <section className="py-20 px-4  text-slate-grey text-center flex flex-col justify-center ">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-playfair text-3xl md:text-4xl mb-6">
             We're here to help your team thrive
@@ -129,7 +129,7 @@ export function LandingPage() {
             Get started today and make financial wellbeing accessible to all.
           </p>
           <Button
-            className="place-self-center"
+            className="place-content-center"
             variant="secondary"
             label="BOOK A DEMO"
           />

@@ -1,105 +1,139 @@
-import { useState, useEffect } from "react";
-import { WidgetsColumn } from "./WidgetsColumn";
+import { useReducer } from "react";
 import { Widget } from "./Widget/Widget";
 import { Tasks } from "../../utils/data";
+import { WidgetT } from "../../utils/Types";
 
-interface WidgetType {
-  id: number;
-  title: string;
-  description: string;
-  status: "Doing Well!" | "Let's Improve" | "Let's Clarify";
-}
-export function WidgetsContainer() {
-  const [widgets, setWidgets] = useState<WidgetType[]>(() => {
-    const savedWidgets = localStorage.getItem("widgets");
-    return savedWidgets ? JSON.parse(savedWidgets) : Tasks;
-  });
 
-  //when a widget is dragging, activeWidget is the id number of that widget. When Drag finished value is null.
-  const [activeWidget, setActiveWidget] = useState<number | null>(null);
+type WidgetAction =
+  | { type: "SET_DRAGGED"; payload: number }
+  | { type: "DROP_WIDGET"; payload: { widgetId: number; targetColumn: number } }
+  | { type: "CLEAR_DRAGGED" };
 
-  useEffect(() => {
-    localStorage.setItem("widgets", JSON.stringify(widgets));
-  }, [widgets]);
+type WidgetState = {
+  widgets: WidgetT[];
+  draggedWidgetId: number | null;
+};
 
-  function onDrop(columnTitle: string, position: number) {
-    if (activeWidget === null) return;
+function reducer(state: WidgetState, action: WidgetAction) {
+  switch (action.type) {
+    case "SET_DRAGGED":
+      return { ...state, draggedWidgetId: action.payload };
+    case "DROP_WIDGET":
+      return {
+        ...state,
+        widgets: state.widgets.map((w) =>
+          w.id === action.payload.widgetId
+            ? { ...w, column: action.payload.targetColumn }
+            : w
+        ),
+        draggedWidgetId: null, // Reset the dragged widget
+      };
 
-    setWidgets((prevWidgets) => {
-      // 1. find the widget you want to move
-      let widgetToMove;
-      for (const widget of prevWidgets) {
-        if (widget.id === activeWidget) {
-          widgetToMove = widget;
-          break;
-        }
-      }
+    case "CLEAR_DRAGGED":
+      return {
+        ...state, // Spread the existing state to keep all properties intact
+        draggedWidgetId: null, // Reset the dragged widget
+      };
 
-      if (!widgetToMove) return prevWidgets;
-
-      // 2. Create a new array without the widget we're moving
-      const updatedWidgets: WidgetType[] = [];
-
-      for (const widget of prevWidgets) {
-        if (widget.id !== activeWidget) {
-          updatedWidgets.push(widget);
-        }
-      }
-
-      //3. Insert the widget at it's new position with updated status
-      updatedWidgets.splice(position, 0, {
-        ...widgetToMove,
-        status:
-          columnTitle === "Completed Tasks" ? "Doing Well!" : "Let's Improve",
-      });
-
-      return updatedWidgets;
-    });
-
-    setActiveWidget(null);
+    default:
+      return state;
   }
 
-  return (
-    <div className="mt-12">
-      <section className="grid grid-cols-2 h-48 overflow-scroll">
-        <WidgetsColumn
-          className="mr-9"
-          title="To Do Tasks"
-          onDrop={onDrop} // Add this
-        >
-          {Tasks.map((widget: WidgetType) => (
-            <Widget
-              key={widget.id} // 5. Issue: Missing key prop
-              id={widget.id}
-              title={widget.title}
-              description={widget.description}
-              status="Let's Improve"
-              setActiveWidget={setActiveWidget}
-            />
-          ))}
-        </WidgetsColumn>
+  
+}
+export function WidgetsContainer() {
+  //setting the initial state of the
+  const initialState: WidgetState = {
+    widgets: Tasks.map((task, index) => {
+      return {
+        id: task.id,
+        title: task.title,
+        description: task.description,
+        column: 0,
+        status: task.status,
+        position: index,
+        isDragged: false,
+      };
+    }),
+    draggedWidgetId: null,
+  };
 
-        <WidgetsColumn title="Completed Tasks" onDrop={onDrop}>
-          {/* {Tasks.map((widget) => (
-            <Widget
-              key={widget.id}
-              id={widget.id}
-              title={widget.title}
-              description={widget.description}
-              status="Doing Well!"
-              setActiveWidget={setActiveWidget}
-            />
-          ))} */}
-          <Widget
-            key={11}
-            id={11}
-            title={"test"}
-            description={"widget.description"}
-            status="Doing Well!"
-            setActiveWidget={setActiveWidget}
-          />
-        </WidgetsColumn>
-      </section>
+  //useReducer to manage widget state
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  //handlers
+  const handleDragStart = (
+    e: React.DragEvent<HTMLDivElement>,
+    widgetId: number
+  ) => {
+ 
+    e.stopPropagation();
+    dispatch({ type: "SET_DRAGGED", payload: widgetId });
+    e.dataTransfer.setData("text/plain", widgetId.toString());
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>, columnId: number) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const widgetId = parseInt(e.dataTransfer.getData("text/plain"));
+    dispatch({
+      type: "DROP_WIDGET",
+      payload: { widgetId, targetColumn: columnId },
+    });
+  };
+
+  return (
+    <div className="container grid grid-cols-2 gap-8 mt-8 min-h-[500px]">
+      <div
+        className="drag-column bg-lightest-grey rounded-md p-5"
+        onDrop={(e) => handleDrop(e, 0)} //drop into column 0
+        onDragOver={(e) => e.preventDefault()}
+      >
+        <h2 className="text-xl font-bold font-heading text-slate-grey m-5 ">
+          {" "}
+          Tasks to Do, InshAllah!
+        </h2>
+        <div className="grid grid-cols-2 gap-4">
+          {state.widgets
+            .filter((widget) => widget.column === 0)
+            .map(({ id, title, description, status }) => (
+              //need logic here to change value of status
+              <Widget
+                id={id}
+                title={title}
+                description={description}
+                status={status}
+                onDragStart={(e) => handleDragStart(e, id)}
+                onDrop={(e) => handleDrop(e, 0)}
+              />
+            ))}
+        </div>
+      </div>
+
+      <div
+        className="drag-column bg-lightest-grey rounded-md"
+        onDrop={(e) => handleDrop(e, 1)} //drop into column 1
+        onDragOver={(e) => e.preventDefault()}
+      >
+        <h2 className="text-xl font-bold font-heading text-slate-grey m-5">
+          {" "}
+          I have completed!{" "}
+        </h2>
+        <div className="grid grid-cols-2 gap-4">
+          {state.widgets
+            .filter((widget) => widget.column === 1)
+            .map(({ id, title, description }) => (
+              <Widget
+                id={id}
+                title={title}
+                description={description}
+                status="Doing Well!"
+                onDragStart={(e) => handleDragStart(e, id)}
+                onDrop={(e) => handleDrop(e, 1)}
+              />
+            ))}
+        </div>
+      </div>
     </div>
   );
 }
