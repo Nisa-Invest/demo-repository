@@ -1,4 +1,21 @@
-# Welcome to your organization's demo respository
-This code repository (or "repo") is designed to demonstrate the best GitHub has to offer with the least amount of noise.
+# DEMO if Nisa Invest Platform
 
-The repo includes an `index.html` file (so it can render a web page), two GitHub Actions workflows, and a CSS stylesheet dependency.
+you can view this project online by clicking the link here: demo-repo[https://demo-repository-qjhich7uy-nisa-invest.vercel.app/]
+
+---
+## To run this repo locally 
+
+Generate an API key and add to your .npmrc file
+
+ navigate here : `cd ./nisa-invest`
+
+run the command: `npm run dev`
+
+
+
+
+---
+## Storybook
+Storybook is a library where you can test and build UI components. 
+
+to run Storybook please run the command `npm run storybook` and a new browser page should pop up where you can see the different "stories" or organised components. 
