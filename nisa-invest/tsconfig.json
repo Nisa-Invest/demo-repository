@@ -1,9 +1,16 @@
-{  "compilerOptions": {
-    // ... other options
-    "baseUrl": ".",
+{
+  "compilerOptions": {
+    "baseUrl": "./src", // Base directory for relative paths
     "paths": {
-      "@/*": ["./src/*"]
-    }
+     "@/*": ["./src/*"],
+       "@/lib/*": ["lib/*"],
+      "@/components/*": ["components/*"], // Maps '@/components/...'
+      "@/components/ui/*": ["components/ui/*"] // Maps '@/components/ui/...'
+    },
+    "strict": true, // Ensures strict type-checking
+    "esModuleInterop": true, // Ensures compatibility with ES modules
+    "moduleResolution": "node", // Uses Node module resolution strategy
+    "resolveJsonModule": true // If needed, allows importing JSON files
   },
   "files": [],
   "references": [
