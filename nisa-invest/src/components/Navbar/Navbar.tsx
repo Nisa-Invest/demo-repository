@@ -6,9 +6,10 @@ export default function Navbar() {
       <nav className="flex flex-row items-center justify-between max-w-7xl mx-auto px-6 md:px-12 py-4">
         {/* Optional: Add logo/brand here */}
         <div className="flex items-center gap-4 md:gap-7 md:pl-20">
-
+          <Button label="Home" href="./home" />
           <Button label="Our Mission" />
           <Button label="Book a Demo" />
+          <Button label="Book a Demo" href="./dashboard"/>
         </div>
 
         <Button label="Login" />

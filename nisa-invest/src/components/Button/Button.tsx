@@ -1,24 +1,33 @@
+import { useNavigate } from "react-router-dom";
+
 export interface ButtonProps {
   label: string;
-  onClick?: () => void;
   variant?: "primary" | "secondary";
   backgroundColor?: string;
   icon?: React.ReactNode;
   size?: "small" | "medium" | "large";
-  className?: string;
+  onClick?: () => void;
+  href?: string;
 }
 
 export const Button = ({
   label,
-  onClick,
   variant = "primary",
   icon,
-  className = "",
+  href,
   ...props
 }: ButtonProps) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (href) {
+      navigate(href);
+    }
+    return;
+  };
+
   return (
     <button
-      onClick={onClick}
       className={`
         flex items-center gap-1 md:gap-2
         px-2 md:px-4 py-1 md:py-2 mx-1
@@ -29,8 +38,9 @@ export const Button = ({
             ? "bg-lightest-grey text-primary-purple hover:bg-accent-light-yellow"
             : "bg-accent-light-yellow text-primary-purple hover:bg-green-200"
         }
-        ${className}
+  
       `}
+      onClick={handleClick}
       {...props}
     >
       {icon && <span className="w-4 h-4 md:w-5 md:h-5">{icon}</span>}
