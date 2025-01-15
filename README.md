@@ -1,6 +1,6 @@
 # DEMO if Nisa Invest Platform
 
-you can view this project online by clicking the link here: demo-repo[https://demo-repository-qjhich7uy-nisa-invest.vercel.app/]
+you can view this project online by clicking the link here: [demo-repo](https://demo-repository-qjhich7uy-nisa-invest.vercel.app/)
 
 ---
 ## To run this repo locally 
