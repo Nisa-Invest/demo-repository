@@ -35,7 +35,8 @@ Nisa Invest is a financial planning designed with Muslim women in mind. Nisa Inv
 ## Storybook
 Storybook is a library where you can test and build UI components. 
 
-To run a local instance of Storybook please run the command `npm run storybook` and a new browser page should pop up where you can see the different "stories" or organised components. 
+To run a local instance of Storybook please run the command **`npm run storybook`** and a new browser page should pop up where you can see the different "stories" or organised components. 
+
 ---
 
 
