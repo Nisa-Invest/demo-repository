@@ -43,7 +43,7 @@ To run a local instance of Storybook please run the command **`npm run storybook
 Pages include:
 - ✅ home page
 - ✅ about us page
-- ✅ dashboard
+- ✅ dashboard - to learn how I made the drag and drop components you can read this article I made! [Medium - Simple Drag and Drop component with React + HTML](https://medium.com/@diana.adamczyk.07/how-to-make-a-simple-drag-and-drop-component-with-react-html-2ae63d7808a7)
 - 🚧 sign up page 
 - 🚧 log in page with authentication
 - 🚧 online resources page
