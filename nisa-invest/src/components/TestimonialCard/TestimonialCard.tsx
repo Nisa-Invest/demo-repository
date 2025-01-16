@@ -1,13 +1,22 @@
 interface TestimonialProps {
   quote: string;
   person: string;
+  className?: string;
 }
 
-export default function TestimonialCard({ quote, person }: TestimonialProps) {
+export default function TestimonialCard({
+  quote,
+  person,
+  className = "",
+}: TestimonialProps) {
   return (
-    <div className="bg-[#DBCCE1] rounded-lg shadow-md p-6">
+    <div
+      className={`${className}
+bg-[#DBCCE1] rounded-lg shadow-md p-6"
+   `}
+    >
       <p className="mb-4 italic text-accent-grey">"{quote}"</p>
-      <p className="text-right font-semibold text-[#512294]">– {person}</p>
+      <p className="text-right font-semibold text-[#512294]"> {person}</p>
     </div>
   );
 }
