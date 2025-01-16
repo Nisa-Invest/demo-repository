@@ -12,6 +12,14 @@
   --radius: 0.5rem; /* Default border radius (adjust as needed) */
 }
 
+:root {
+  --primary-purple: #7575cf;
+  --light-purple: #9EA8ED;
+  --slate-grey: #595959;
+  --light-grey: #F0EFEB;
+  --light-yellow: #FFDC73;
+}
+
 body {
   margin: 0;
   padding: 0;

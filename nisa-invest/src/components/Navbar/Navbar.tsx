@@ -1,19 +1,37 @@
-import { Button } from "../Button/Button";
-//import { NisaLogo } from "../../assets/Nisa_Logo";
+import styles from "./NavBar.module.css";
+// import { NisaLogo } from "../../assets/Nisa_Logo";
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
+
 export default function Navbar() {
   return (
-    <header className="w-full bg-accent-light-purple">
-      <nav className="flex flex-row items-center justify-between max-w-7xl mx-auto px-6 md:px-12 py-4">
-        {/* Optional: Add logo/brand here */}
-        <div className="flex items-center gap-4 md:gap-7 md:pl-20">
-          <Button label="Home" href="./home" />
-          <Button label="Our Mission" />
-          <Button label="Book a Demo" />
-          <Button label="Book a Demo" href="./dashboard"/>
-        </div>
+    <nav className={styles.navBar}>
+      <ul className={styles.navList}>
+        <CustomLink to="/home"> Home </CustomLink>
+        <CustomLink to="/"> Our Mission </CustomLink>
+        <CustomLink to="/dashboard"> Dashboard </CustomLink>
+      </ul>
+      <ul className={styles.navList}>
+        <CustomLink to="/quiz"> Login </CustomLink>
+        <CustomLink to="/"> Sign Up </CustomLink>
+        <CustomLink to="/"> Book a Demo </CustomLink>
+      </ul>
+    </nav>
+  );
+}
 
-        <Button label="Login" />
-      </nav>
-    </header>
+interface CustomLinkProps {
+  to: string;
+  children: React.ReactNode;
+}
+function CustomLink({ to, children, ...props }: CustomLinkProps) {
+  const resolvedPath = useResolvedPath(to);
+  const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+
+  return (
+    <li className={`${styles.navItem} ${isActive ? styles.active : ""}`}>
+      <Link to={to} className={styles.navLink} {...props}>
+        {children}
+      </Link>
+    </li>
   );
 }
