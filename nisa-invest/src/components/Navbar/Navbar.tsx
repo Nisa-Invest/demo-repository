@@ -11,8 +11,8 @@ export default function Navbar() {
         <CustomLink to="/dashboard"> Dashboard </CustomLink>
       </ul>
       <ul className={styles.navList}>
-        <CustomLink to="/quiz"> Login </CustomLink>
-        <CustomLink to="/"> Sign Up </CustomLink>
+        <CustomLink to="/construction"> Login </CustomLink>
+        <CustomLink to="/construction"> Sign Up </CustomLink>
         <CustomLink to="/"> Book a Demo </CustomLink>
       </ul>
     </nav>

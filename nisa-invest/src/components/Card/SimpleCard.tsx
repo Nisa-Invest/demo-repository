@@ -9,7 +9,7 @@ children?: React.ReactNode;
 export function SimpleCard ({title, description, btnText,  children}: SimpleCardProps) {
 
   return (
-      <div className="bg-indigo-400 rounded-3xl p-8 max-w-xl w-full relative">
+      <div className="bg-primary-purple rounded-3xl p-8 max-w-xl w-full relative">
         <h2 className="text-3xl font-bold mb-4 text-black">
          {title}
         </h2>
