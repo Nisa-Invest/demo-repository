@@ -1,5 +1,4 @@
 import React from "react";
-import { SimpleCard } from "../components/Card/SimpleCard";
 
 
 export function HomePage() {
@@ -36,14 +35,7 @@ export function HomePage() {
           </div>
         </section>
         <section className="py-12 md:py-20 items-center">
-          {/* Need to finish this section
-        
-        <section className="py-12">
-          <div className="grid md:grid-cols-2 gap-8">
-            <SimpleCard title="Book a meeting with your financial advisor!" />
-            <SimpleCard title="See your dashboard" />
-          </div>
-        </section> */}
+
         </section>
         <section className="py-48">
           <h2 className="text-3xl font-bold text-center mb-8">
