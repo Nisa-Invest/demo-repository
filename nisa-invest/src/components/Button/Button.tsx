@@ -8,6 +8,7 @@ export interface ButtonProps {
   size?: "small" | "medium" | "large";
   onClick?: () => void;
   href?: string;
+  className?: string;
 }
 
 export const Button = ({
@@ -15,6 +16,7 @@ export const Button = ({
   variant = "primary",
   icon,
   href,
+  className = "",
   ...props
 }: ButtonProps) => {
   const navigate = useNavigate();
@@ -38,7 +40,8 @@ export const Button = ({
             ? "bg-lightest-grey text-primary-purple hover:bg-accent-light-yellow"
             : "bg-accent-light-yellow text-primary-purple hover:bg-green-200"
         }
-  
+            ${className}
+
       `}
       onClick={handleClick}
       {...props}
