@@ -1,14 +1,22 @@
-# DEMO if Nisa Invest Platform
+# DEMO of Nisa Invest Platform
 
-you can view this project online by clicking the link here: [demo-repo](https://demo-repository-qjhich7uy-nisa-invest.vercel.app/)
+You can view the production version of project online by clicking the link here: [demo-repo](https://demo-repository-qjhich7uy-nisa-invest.vercel.app/)
 
-🚧 This web app project is still underconstruction 🚧. This is an MVP of what the potential tech product for Nisa-Invest could look like. 
-Nisa-invest is a platform where you can: 
-- schedule 1:1 meetings with a quaified finacial advisor
-- upon signing up, you will complete a quiz, this quiz will then generate a set of goals for you to focus on . These goals can be monitored and tracked in your dashboard where you track the progress of each goal.
-- have access to Nisa-Invest learning material and resources
-  
-This is currently only a front end project made with Vite + React + TypeScript. 
+🚧 This web app project is still **under construction** 🚧. This is an MVP of what the potential tech product for Nisa-Invest could look like.
+
+** please note this is currently only a front end project made with Vite + React + TypeScript. 
+
+
+---
+## What is Nisa Invest?
+Nisa Invest is a financial planning designed with Muslim women in mind. Nisa Invest is here to help you work through life's big milestones and financial decisions such as managing expenses, investments, and charitable giving according to personal values and long-term goals. To learn more about us, follow us on LinkedIn : [LinkedIn](https://www.linkedin.com/company/nisainvest/posts/?feedView=all)
+
+ 
+## What can you do on the Nisa-invest platform?: 
+- schedule 1:1 meetings with a quaified finacial advisor.
+- upon signing up, you will complete a quiz, this quiz will then generate a set of personalised goals for you to focus on. These goals can be monitored and tracked in your dashboard.
+- have access to Nisa-Invest learning material and resources.
+- sign up to attend our in-person events. 
 
 ---
 ## To run this repo locally 
