@@ -21,10 +21,17 @@ Nisa Invest is a financial planning designed with Muslim women in mind. Nisa Inv
 ---
 ## To run this repo locally 
 
- navigate here : `cd ./nisa-invest`
+ ```
+# clone the repository and open it on your IDE / Terminal
+ https://github.com/Nisa-Invest/demo-repository.git
 
-run the command: `npm run dev`
+# navigate tp the correct directory
+ cd ./nisa-invest
 
+# run the command
+ `npm run dev`
+
+ ```
 ## Storybook
 Storybook is a library where you can test and build UI components. 
 
@@ -35,7 +42,9 @@ To run a local instance of Storybook please run the command `npm run storybook` 
 Pages include:
 - ✅ home page
 - ✅ about us page
+- ✅ dashboard
 - 🚧 sign up page 
 - 🚧 log in page with authentication
-- ✅ dashboard
+- 🚧 online resources page
+- 🚧 events page
   
