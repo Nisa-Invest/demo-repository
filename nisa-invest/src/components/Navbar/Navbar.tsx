@@ -13,7 +13,7 @@ export default function Navbar() {
       <ul className={styles.navList}>
         <CustomLink to="/construction"> Login </CustomLink>
         <CustomLink to="/construction"> Sign Up </CustomLink>
-        <CustomLink to="/"> Book a Demo </CustomLink>
+        <CustomLink to="/booking"> Book a Demo </CustomLink>
       </ul>
     </nav>
   );
