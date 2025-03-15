@@ -5,6 +5,7 @@ import { FinancialPlanningQuiz } from "../components/Quiz/Quiz.tsx";
 import { HomePage } from "../pages/HomePage.tsx";
 import { UnderConstruction } from "@/assets/Under_Construction.tsx";
 import BookingPage from "@/pages/BookingPage.tsx";
+import { ContactPage } from "@/pages/ContactUsPage.tsx";
 
 export function RouterRoutes() {
   return (
@@ -15,6 +16,7 @@ export function RouterRoutes() {
       <Route path="/dashboard" element={<DashboardPage />} />
       <Route path="/construction" element={<UnderConstruction />} />
       <Route path="/booking" element={<BookingPage />} />
+      <Route path="/contact" element={<ContactPage />} />
     </Routes>
   );
 }
