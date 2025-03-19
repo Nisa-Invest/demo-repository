@@ -1,47 +1,51 @@
-import { useActionState } from "react";
-import { redirect } from "react-router-dom";
+import styles from "./Form.module.css";
+import { useState } from "react";
 
-async function sendMessageToServer(name: string, msg: string) {
-  // Simulate API call
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  if (!name || !msg) {
-    return "Name and message are required";
-  }
+function sendMessageToServer(name: string, msg: string) {
   console.log(`The name is ${name}, the message is ${msg}`); // No error
 }
 
 export default function ContactForm() {
-  const [error, submitAction, isPending] = useActionState(
-    async (formData: FormData) => {
-      const name = formData.get("name") as string;
-      const msg = formData.get("message") as string;
-
-      const error = await sendMessageToServer(name, msg);
-
-      if (error) {
-        return error;
-      }
-
-      redirect("/");
-      return null;
-    },
-    null
-  );
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
 
   return (
-    <form action={submitAction}>
-      <div>
-        <label htmlFor="name"> Name</label>
-        <input type="text" name="name"></input>
-      </div>
-      <div>
-        <label htmlFor="message"> Message</label>
-        <input type="text" name="message"></input>
-      </div>
-      <button type="submit" disabled={isPending}>
-        submit
-      </button>
-      {error && <p>{error}</p>}
-    </form>
+    <div className={styles.formContainer}>
+      <h2> Contact Us </h2>
+      <form
+        className={styles.contactForm}
+        onSubmit={(event) => {
+          event.preventDefault();
+          sendMessageToServer(name, message);
+        }}
+      >
+        <div className={styles.formGroup}>
+          <label htmlFor="name"> Name</label>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={(event) => {
+              setName(event.target.value);
+            }}
+          />
+        </div>
+
+        <div className={styles.formGroup}>
+          <label htmlFor="message"> Message</label>
+          <textarea
+            id="message"
+            value={message}
+            onChange={(event) => {
+              setMessage(event.target.value);
+            }}
+            placeholder=" Write to us with any queries you may have!"
+            rows={5}
+            required
+          />
+        </div>
+        <button type="submit" className={styles.submitButton}>submit</button>
+      </form>
+    </div>
   );
 }
